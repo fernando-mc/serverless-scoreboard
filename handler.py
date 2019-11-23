@@ -10,12 +10,12 @@ def handler(event, context):
         'apex/apex', 
         'aws-amplify/amplify-js', 
         'awslabs/serverless-application-model', 
-        'mweagle/Sparta',
         'jorgebastida/gordon',
+        'mweagle/Sparta',
     ]
     # Request data from the GitHub API
     results = []
-    for framework in frameworks:
+    for framework['reponame'] in frameworks:
         r = requests.get('https://api.github.com/repos/' + framework)
         data = json.loads(r.text)
         framework_stats = {
@@ -31,7 +31,7 @@ def handler(event, context):
     s3.put_object(
         ACL='public-read',
         Body=json_result,
-        Bucket="serverless-scorecard", 
+        Bucket="fmc-data-utils", 
         Key="recent_results.json",
     )
     print("RESULTS:")

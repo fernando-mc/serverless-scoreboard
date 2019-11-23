@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!-- Site Properties -->
+  <title>Serverless Scorecard</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+  </script>
+  <script src="https://underscorejs.org/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">Serverless Scorecard</h1>
+      <h2>The GitHub stats for the top serverless frameworks and tools.</h2>
+      <a href="https://fernandomc.com/contact">
+        <div class="ui huge primary button">
+          Submit a project<i class="right arrow icon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="ui vertical stripe segment">
+    <div class="ui center aligned stackable grid container">
+      <div class="row">
+        <div class="twelve wide column">
+          <h1>Top Starred Projects</h1>
+          <canvas id="top-stars"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical stripe segment">
+    <div class="ui center aligned stackable grid container">
+      <div class="row">
+        <div class="twelve wide column">
+          <h1>Top Watched Projects</h1>
+          <canvas id="top-watchers"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical stripe segment">
+    <div class="ui center aligned stackable grid container">
+      <div class="row">
+        <div class="twelve wide column">
+          <h1>Top Forked Projects</h1>
+          <canvas id="top-forks"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $.getJSON('https://fmc-data-utils.s3.amazonaws.com/recent_results.json' , function(json_results) {
+        var topStars = document.getElementById('top-stars').getContext('2d');
+        var topWatchers = document.getElementById('top-watchers').getContext('2d');
+        var topForks = document.getElementById('top-forks').getContext('2d');
+        var chart = new Chart(topStars, {
+            type: 'bar',
+            data: {
+                labels: _.pluck(json_results, 'name'),
+                datasets: [
+                  {
+                    label: 'Stars',
+                    backgroundColor: '#801515',
+                    borderColor: '#801515',
+                    data: _.pluck(json_results, 'stargazers_count')
+                  }
+                ]
+            },
+            options: {
+              scales: {
+                yAxes:[{
+                  ticks: {
+                    callback: function(value, index, values) {
+                      return value / 1e3 + 'k';
+                    }
+                  }
+                }]
+              }
+            }
+        });
+        var chart = new Chart(topWatchers, {
+            type: 'bar',
+            data: {
+                labels: _.pluck(json_results, 'name'),
+                datasets: [
+                  {
+                    label: 'Watchers',
+                    backgroundColor: '#FFAAAA',
+                    borderColor: '#FFAAAA',
+                    data: _.pluck(json_results, 'subscribers_count')
+                  },
+                ]
+            },
+            options: {
+              scales: {
+                yAxes:[{
+                  ticks: {
+                    callback: function(value, index, values) {
+                      return value / 1e3 + 'k';
+                    }
+                  }
+                }]
+              }
+            }
+        });
+        var chart = new Chart(topForks, {
+            type: 'bar',
+            data: {
+                labels: _.pluck(json_results, 'name'),
+                datasets: [
+                  {
+                    label: 'Forks',
+                    backgroundColor: '#550000',
+                    borderColor: '#550000',
+                    data: _.pluck(json_results, 'forks_count')
+                  }
+                ]
+            },
+            options: {
+              scales: {
+                yAxes:[{
+                  ticks: {
+                    callback: function(value, index, values) {
+                      return value / 1e3 + 'k';
+                    }
+                  }
+                }]
+              }
+            }
+        });
+        
+    });
+    </script>    
+
+</body>
+
+</html>

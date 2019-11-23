@@ -17,3 +17,12 @@ functions:
     handler: handler.handler
     events:
       - schedule: rate(1 day)
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: serverless-scorecard
+    distributionFolder: frontend
+    errorDocument: index.html
