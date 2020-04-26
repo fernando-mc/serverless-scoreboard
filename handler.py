@@ -15,7 +15,7 @@ def handler(event, context):
     ]
     # Request data from the GitHub API
     results = []
-    for framework['reponame'] in frameworks:
+    for framework in frameworks:
         r = requests.get('https://api.github.com/repos/' + framework)
         data = json.loads(r.text)
         framework_stats = {

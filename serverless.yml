@@ -10,8 +10,10 @@ provider:
       Action:
         - 's3:GetObject'
         - 's3:PutObject'
+        - 's3:PutObjectAcl'
       Resource:
         - 'arn:aws:s3:::serverless-scorecard/*'
+        - 'arn:aws:s3:::fmc-data-utils/*'
 functions:
   hello:
     handler: handler.handler
@@ -20,9 +22,12 @@ functions:
 
 plugins:
   - serverless-finch
+  - serverless-python-requirements
 
 custom:
   client:
     bucketName: serverless-scorecard
     distributionFolder: frontend
     errorDocument: index.html
+  pythonRequirements:
+    dockerizePip: non-linux
