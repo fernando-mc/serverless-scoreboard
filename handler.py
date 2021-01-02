@@ -5,13 +5,14 @@ import requests
 def handler(event, context):
     # Set of Repos to look for metadata
     frameworks = [
-        'serverless/serverless', 
-        'miserlou/zappa', 
-        'apex/apex', 
-        'aws-amplify/amplify-js', 
-        'awslabs/serverless-application-model', 
+        'serverless/serverless',
+        'miserlou/zappa',
+        'aws-amplify/amplify-js',
+        'awslabs/serverless-application-model',
         'jorgebastida/gordon',
         'mweagle/Sparta',
+        'mweagle/Sparta',
+        'architect/arc.codes',
     ]
     # Request data from the GitHub API
     results = []
