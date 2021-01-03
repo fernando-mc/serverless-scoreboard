@@ -10,9 +10,8 @@ def handler(event, context):
         'aws-amplify/amplify-js',
         'awslabs/serverless-application-model',
         'jorgebastida/gordon',
-        'mweagle/Sparta',
-        'mweagle/Sparta',
         'architect/architect',
+        'mweagle/Sparta',
     ]
     # Request data from the GitHub API
     results = []
