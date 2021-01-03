@@ -12,7 +12,7 @@ def handler(event, context):
         'jorgebastida/gordon',
         'mweagle/Sparta',
         'mweagle/Sparta',
-        'architect/arc.codes',
+        'architect/architect',
     ]
     # Request data from the GitHub API
     results = []
