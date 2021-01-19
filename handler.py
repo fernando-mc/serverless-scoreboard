@@ -12,6 +12,9 @@ def handler(event, context):
         'jorgebastida/gordon',
         'architect/architect',
         'mweagle/Sparta',
+        'aws/chalice',
+        'claudiajs/claudia',
+        'brefphp/bref',
     ]
     # Request data from the GitHub API
     results = []
