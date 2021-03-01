@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!-- Site Properties -->
+  <title>Serverless Scorecard</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+</head>
+<body>
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">Serverless Scorecard</h1>
+      <h2>The GitHub stats for the top serverless frameworks and tools.</h2>
+      <a href="https://fernandomc.com/contact">
+        <div class="ui huge primary button">
+          Submit a project<i class="right arrow icon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="ui divider"></div>
+
+<div class="ui grid">
+    <div class="fourteen wide centered column">
+        <table class="ui celled table">
+            <thead>
+            <tr>
+            <th>Framework</th>
+            <th>Common Use Cases and Benefits</th>
+            <th>Supported Runtimes</th>
+            <th>Supported Cloud Providers</th>
+            <th>Maintenance Status</th>
+            <th>Community Links</th>
+            <th>Open Source?</th>
+            <th>Paid offering?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><a href="http://serverless.com/">The Serverless Framework</a></td>
+            <td>API Development, Integrations with cloud services, rich plugin ecosystem</td>
+            <td>Node.js, Python, Java, Go, others, and custom*</td>
+            <td>AWS,  Azure, Tencent, and others*</td>
+            <td>Actively maintained by by Serverless Inc.</td>
+            <td><a href="http://serverless.com/slack">Slack</a>, <a href="https://forum.serverless.com/">Forum</a></td>
+            <td><a href="https://www.serverless.com/open-source/">Yes</a>**</td>
+            <td><a href="https://www.serverless.com/pro/">Yes</a></td>
+            </tr>
+            <tr>
+            <td><a href="https://docs.amplify.aws/">AWS Amplify</a></td>
+            <td>Serverless Backends for Frontend and Mobile Developers, well integrate with AWS services, compelling GraphQL story</td>
+            <td>Several, but more focused on integrations with React, Vue, iOS, Android, and Flutter</td>
+            <td>AWS</td>
+            <td>Actively Maintained by AWS</td>
+            <td><a href="https://discord.com/invite/jWVbPfC">Discord</a>, <a href="https://gitter.im/AWS-Amplify/Lobby">Gitter</a></td>
+            <td><a href="https://aws.amazon.com/amplify/faqs">Yes</a>**</td>
+            <td><a href="https://aws.amazon.com/amplify/pricing/">Yes</a>**</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/aws/serverless-application-model">AWS SAM</a></td>
+            <td>API Development</td>
+            <td>Node.js, Python, Go, others, and custom*</td>
+            <td>AWS</td>
+            <td>Actively Maintained by AWS</td>
+            <td><a href="https://gitter.im/awslabs/aws-sam-local">Gitter</a></td>
+            <td><a href="https://github.com/aws/serverless-application-model/blob/develop/LICENSE">Yes - Apache 2.0</a></td>
+            <td>No</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/Miserlou/Zappa">Zappa</a></td>
+            <td>Integrating Django, Flask, and WSGI Frameworks with AWS Lambda</td>
+            <td>Python</td>
+            <td>AWS</td>
+            <td>In Flux as of 2021</td>
+            <td><a href="https://slack.zappa.io/">Slack</a></td>
+            <td><a href="https://github.com/Miserlou/Zappa/blob/master/LICENSE">Yes - MIT</a></td>
+            <td>No</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/architect/architect">Architect</a></td>
+            <td>API Development</td>
+            <td>Node, Deno, Ruby, Python</td>
+            <td>AWS</td>
+            <td>Actively Maintained by <a href="begin.com">Begin</a></td>
+            <td><a href="https://join.slack.com/t/architecture-as-text/shared_invite/MjE2MzU4Nzg0NTY1LTE1MDA2NzgyMzYtODE2NzRkOGRmYw">Slack</a>, <a href="https://arc.codes/docs/en/about/community">Community Links</a></td>
+            <td><a href="https://github.com/architect/architect/blob/master/LICENSE">Yes - Apache 2.0</a></td>
+            <td><a href="https://begin.com/">Yes</a></td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/aws/chalice">AWS Chalice</a></td>
+            <td>API Development, integrations with common AWS services</td>
+            <td>Python</td>
+            <td>AWS</td>
+            <td>Actively Maintained by AWS</td>
+            <td><a href="https://gitter.im/awslabs/chalice">Gitter</a></td>
+            <td><a href="https://github.com/aws/chalice/blob/master/LICENSE">Yes - Apache 2.0</a></td>
+            <td>No</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/mweagle/Sparta">Sparta</a></td>
+            <td>Go Microservices</td>
+            <td>Go</td>
+            <td>AWS</td>
+            <td>Actively Maintained by Matt Weagle (AWS)</td>
+            <td>None</td>
+            <td><a href="https://github.com/mweagle/Sparta/blob/master/LICENSE.txt">Yes - MIT</a></td>
+            <td>None</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/brefphp/bref">Bref</a></td>
+            <td>PHP Application Development on top of AWS Lambda</td>
+            <td>PHP</td>
+            <td>AWS</td>
+            <td>Actively Maintained by <a href="https://null.tc">Null.tc</a></td>
+            <td>None</td>
+            <td><a href="https://github.com/brefphp/bref/blob/master/LICENSE">Yes - MIT</a></td>
+            <td><a href="https://null.tc/">Yes</a></td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/claudiajs/claudia">Claudia JS</a></td>
+            <td>API Development</td>
+            <td>Node.js</td>
+            <td>AWS</td>
+            <td>No movement since 2020</td>
+            <td><a href="https://gitter.im/claudiajs/claudia">Gitter</a></td>
+            <td><a href="https://github.com/claudiajs/claudia/blob/master/LICENSE">Yes - MIT</a></td>
+            <td>No</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/apex/apex">Apex</a></td>
+            <td>API Development</td>
+            <td>Golang, Node.js, Crystal</td>
+            <td>AWS</td>
+            <td>No Longer Maintained</td>
+            <td>None</td>
+            <td><a href="https://github.com/apex/up/blob/master/LICENSE">Yes - MIT</a></td>
+            <td><a href="https://apex.sh/docs/up/">Yes</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p>
+            *The Serverless Framework and AWS SAM support other runtimes and providers with various degrees of functionality. The Serverless Framework best supports AWS and Node.js or Python Lambda functions, but it remains a good tool for many different runtimes. AWS SAM similarly supports several different runtimes. Both frameworks also have options for building custom runtimes and more recently support for brining your own containers.
+            </br></br>
+            **Both AWS Amplify and the Serverless Framework have open source and commercial components. And they both require you to pay for services on a cloud provider like AWS. The Serverless Framework has [MIT-licensed code](https://github.com/serverless/serverless/blob/master/LICENSE.txt) for the Framework itself and an optional proprietary platform. AWS Amplify has [Apache 2.0](https://github.com/aws-amplify/amplify-js/blob/main/LICENSE) licensed code and integrations with the proprietary parts of the AWS cloud.
+            </p>
+    </div>
+    
+</div>     
+        
+</div>
+
+</body>
+
+</html>
