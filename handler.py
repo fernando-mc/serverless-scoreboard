@@ -2,6 +2,7 @@ import json
 import boto3
 import requests
 
+
 def handler(event, context):
     # Set of Repos to look for metadata
     frameworks = [
@@ -11,10 +12,9 @@ def handler(event, context):
         'awslabs/serverless-application-model',
         'jorgebastida/gordon',
         'architect/architect',
-        'mweagle/Sparta',
         'aws/chalice',
-        'claudiajs/claudia',
         'brefphp/bref',
+        'serverless-stack/sst'
     ]
     # Request data from the GitHub API
     results = []
@@ -34,7 +34,7 @@ def handler(event, context):
     s3.put_object(
         ACL='public-read',
         Body=json_result,
-        Bucket="fmc-data-utils", 
+        Bucket="fmc-data-utils",
         Key="recent_results.json",
     )
     print("RESULTS:")
